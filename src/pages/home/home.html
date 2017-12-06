@@ -11,16 +11,25 @@
 
 <ion-content padding id="inicio">
   <div class="balance">
-    <img src="assets/imgs/Balance.jpg"/>
+    <img src="assets/imgs/Balance.jpg" />
   </div>
   <div class="cuenta">
-      <h5>Cuenta</h5>
-      <p>{{cuenta}}</p>
+    <h5>Cuenta</h5>
+    <p>{{cuenta}}</p>
   </div>
   <div class="codigo">
     <img src="assets/imgs/QRCode.png" />
   </div>
-
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-row class="botonera">
+    <ion-col col-6>
+      <button id="recibir" full ion-button on-click="goToRecibir()">
+        Recibir
+      </button>
+    </ion-col>
+    <ion-col col-6>
+    <button id="enviar" full ion-button color="secondary" on-click="goToEnviar()">
+      Enviar
+    </button>
+  </ion-col>
+  </ion-row>
 </ion-content>

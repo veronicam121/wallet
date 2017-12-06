@@ -5,6 +5,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { CuentaPage } from '../pages/cuenta/cuenta';
+
+//import { TransaccionesPage } from '../pages/transacciones/transacciones';
+//import { ActividadPage } from '../pages/actividad/actividad';
+//import { LibretaPage } from '../pages/libreta/libreta';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,13 +21,22 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
+  username: string;
+  avatar:string;
+
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
-
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Inicio', component: HomePage },
+      { title: 'Lista', component: ListPage },
+      { title: 'Cuenta', component: CuentaPage }
+      //{ title: 'Transacciones', component: TransaccionesPage }
+      //{ title: 'Actividad', component: ActividadPage }
+      //{ title: 'Libreta de direcciones', component: LibretaPage }
+
     ];
+    this.avatar='/imgs/user.png';
+    this.username='Usuario';
 
   }
 
