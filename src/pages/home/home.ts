@@ -1,25 +1,30 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ReceivePage } from '../receive/receive';
+import { SendPage } from '../send/send';
 
-//import { EnviarPage } from '../enviar/enviar';
+// import { EnviarPage } from '../enviar/enviar';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+
 })
 export class HomePage {
-  cuenta:string;
+  public direction: string;
+  public code: string;
 
   constructor(public navCtrl: NavController) {
-    this.cuenta="1BPmau8ewds343Bgsds34jsS2fd342saTscqS";
+    this.direction = '1BPmau8ewds343Bgsds34jsS2fd342saTscqS232QrTscwqQecvbv';
+    this.code = 'assets/imgs/QRCode.png';
   }
 
-  goToRecibir(){
-
+  public goToReceive() {
+    this.navCtrl.push(ReceivePage);
   }
 
-  gotToEnviar(){
-
+  public goToSend() {
+    this.navCtrl.push(SendPage);
   }
 
 }

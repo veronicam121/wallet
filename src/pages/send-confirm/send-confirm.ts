@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the CuentaPage page.
+ * Generated class for the SendConfirmPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,23 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-cuenta',
-  templateUrl: 'cuenta.html',
+  selector: 'page-send-confirm',
+  templateUrl: 'send-confirm.html',
 })
-export class CuentaPage {
-
-  username: string;
-  avatar:string;
+export class SendConfirmPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-
-    this.avatar='/imgs/user.png';
-    this.username='Usuario';
-    
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CuentaPage');
+    console.log('ionViewDidLoad SendConfirmPage');
   }
 
 }

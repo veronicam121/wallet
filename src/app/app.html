@@ -7,7 +7,7 @@
 
   <ion-content>
     <ion-list>
-      <ion-item>
+      <ion-item color="light">
         <ion-avatar item-start>
           <img src="../assets/{{avatar}}">
         </ion-avatar>
@@ -16,10 +16,11 @@
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
-      <div class="spacer"></div>
-      <button ion-item menuClose (click)="cerrarSesion()">
-        Cerrar Sesión
-      </button>
+      <div padding-vertical>
+        <button ion-item menuClose (click)="logOut()">
+          Cerrar Sesión
+        </button>
+      </div>
     </ion-list>
   </ion-content>
 
