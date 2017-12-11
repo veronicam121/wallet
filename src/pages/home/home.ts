@@ -19,11 +19,11 @@ export class HomePage {
     this.code = 'assets/imgs/QRCode.png';
   }
 
-  public goToReceive() {
+  private goToReceive() {
     this.navCtrl.push(ReceivePage);
   }
 
-  public goToSend() {
+  private goToSend() {
     this.navCtrl.push(SendPage);
   }
 

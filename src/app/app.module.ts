@@ -14,6 +14,8 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { ReceivePage } from '../pages/receive/receive';
 import { SendPage } from '../pages/send/send';
+import { AddressBookPage } from '../pages/address-book/address-book';
+import { AddressPage } from '../pages/address/address';
 
 @NgModule({
   bootstrap: [IonicApp],
@@ -26,7 +28,8 @@ import { SendPage } from '../pages/send/send';
     RegisterPage,
     ReceivePage,
     SendPage,
-
+    AddressBookPage,
+    AddressPage,
   ],
   entryComponents: [
     MyApp,
@@ -37,6 +40,8 @@ import { SendPage } from '../pages/send/send';
     RegisterPage,
     ReceivePage,
     SendPage,
+    AddressBookPage,
+    AddressPage,
   ],
   imports: [
     BrowserModule,

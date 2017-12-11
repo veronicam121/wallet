@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
+import { AddressBookPage } from '../pages/address-book/address-book';
 
 // import { TransaccionesPage } from '../pages/transacciones/transacciones';
 // import { ActividadPage } from '../pages/actividad/actividad';
@@ -19,7 +20,10 @@ export class MyApp {
   @ViewChild(Nav) public nav: Nav;
 
   public rootPage: any = HomePage;
-  public pages: Array<{title: string, component: any}>;
+  public pages: Array<{
+    title: string,
+    component: any,
+  }>;
   public username: string;
   public avatar: string;
 
@@ -29,9 +33,9 @@ export class MyApp {
       { title: 'Inicio', component: HomePage },
       { title: 'Lista', component: ListPage },
       { title: 'Cuenta', component: AccountPage },
+      { title: 'Libreta de Contactos', component: AddressBookPage },
       // { title: 'Transacciones', component: TransaccionesPage }
       // { title: 'Actividad', component: ActividadPage }
-      // { title: 'Libreta de direcciones', component: LibretaPage }
 
     ];
     this.avatar = '/imgs/user.png';
