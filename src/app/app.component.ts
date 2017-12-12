@@ -4,12 +4,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { AddressBookPage } from '../pages/address-book/address-book';
 
-// import { TransaccionesPage } from '../pages/transacciones/transacciones';
+import { TransactionsPage } from '../pages/transactions/transactions';
 // import { ActividadPage } from '../pages/actividad/actividad';
 // import { LibretaPage } from '../pages/libreta/libreta';
 
@@ -31,10 +30,9 @@ export class MyApp {
     this.initializeApp();
     this.pages = [
       { title: 'Inicio', component: HomePage },
-      { title: 'Lista', component: ListPage },
       { title: 'Cuenta', component: AccountPage },
       { title: 'Libreta de Contactos', component: AddressBookPage },
-      // { title: 'Transacciones', component: TransaccionesPage }
+      { title: 'Transacciones', component: TransactionsPage },
       // { title: 'Actividad', component: ActividadPage }
 
     ];

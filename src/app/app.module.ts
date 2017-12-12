@@ -8,7 +8,6 @@ import { MyApp } from './app.component';
 
 // Lista de Páginas
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
@@ -16,13 +15,13 @@ import { ReceivePage } from '../pages/receive/receive';
 import { SendPage } from '../pages/send/send';
 import { AddressBookPage } from '../pages/address-book/address-book';
 import { AddressPage } from '../pages/address/address';
+import { TransactionsPage } from '../pages/transactions/transactions';
 
 @NgModule({
   bootstrap: [IonicApp],
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     AccountPage,
     LoginPage,
     RegisterPage,
@@ -30,11 +29,11 @@ import { AddressPage } from '../pages/address/address';
     SendPage,
     AddressBookPage,
     AddressPage,
+    TransactionsPage,
   ],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     AccountPage,
     LoginPage,
     RegisterPage,
@@ -42,6 +41,7 @@ import { AddressPage } from '../pages/address/address';
     SendPage,
     AddressBookPage,
     AddressPage,
+    TransactionsPage,
   ],
   imports: [
     BrowserModule,

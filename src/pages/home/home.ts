@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ReceivePage } from '../receive/receive';
 import { SendPage } from '../send/send';
+import { User } from '../../models/user';
 
 // import { EnviarPage } from '../enviar/enviar';
 
@@ -11,12 +12,15 @@ import { SendPage } from '../send/send';
 
 })
 export class HomePage {
-  public direction: string;
-  public code: string;
+  public user: User;
 
   constructor(public navCtrl: NavController) {
-    this.direction = '1BPmau8ewds343Bgsds34jsS2fd342saTscqS232QrTscwqQecvbv';
-    this.code = 'assets/imgs/QRCode.png';
+    this.user = new User(
+    'nombre',
+    'correo@correo.com',
+    '1BPmau8ewds343Bgsds34jsS2fd342saTscqS232QrTscwqQecvbv',
+    'assets/imgs/QRCode.png')
+    ;
   }
 
   private goToReceive() {

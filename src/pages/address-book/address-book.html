@@ -8,12 +8,12 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item color="none" *ngFor="let a of address" (click)="openAddress(a)">
+    <ion-item color="none" *ngFor="let a of addressBook" (click)="openAddress(a)">
       <ion-avatar item-left>
-        <img src="{{a.img}}"/>
+        <img src="{{a.address.img}}"/>
       </ion-avatar>
       <h2>
-        {{a.alias}}
+        #{{a.id}} {{a.address.alias}}
       </h2>
     </ion-item>
   </ion-list>

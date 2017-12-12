@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddressPage } from '../address/address';
+import { Address } from '../../models/address';
 
 @IonicPage()
 @Component({
@@ -10,16 +11,15 @@ import { AddressPage } from '../address/address';
 export class AddressBookPage {
 
   private addressBook: Array<{
-    img: string,
-    alias: string,
-    address: string,
+    id: number;
+    address: Address;
   }>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.addressBook = [
-      { img: '/imgs/user.png', alias: 'usuario 1', address: '123456789'},
-      { img: '/imgs/user.png', alias: 'usuario 2', address: '98765432121'},
-      { img: '/imgs/user.png', alias: 'usuario 3', address: 'hsdushduishid'},
+      { id: 1, address: new Address('../../assets/imgs/user.png', 'alias 1', '42sdsvgf93ghg823')},
+      { id: 2, address: new Address('../../assets/imgs/user.png', 'alias 2', 'acnjsdnjwsdsjdsd')},
+      { id: 3, address: new Address('../../assets/imgs/user.png', 'alias 3', 'dfje4y7837yjsdcx')},
     ];
   }
 

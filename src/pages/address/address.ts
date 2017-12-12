@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup } from '@angular/forms/src/model';
+import { Address } from '../../models/address';
 
 @IonicPage()
 @Component({
@@ -9,24 +10,20 @@ import { FormGroup } from '@angular/forms/src/model';
 })
 export class AddressPage {
 
-  private address: {
-    img: string,
-    alias: string,
-    address: string,
-  };
+  private address: Address;
   private action: string;
-  private editAddress: FormGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    if (this.navParams.get('alias')) {
-      // this.address = {
-        // img = this.navParams.get("img"),
-        // alias = this.navParams.get("alias"),
-        // address = this.navParams.get("address"),
-      // };
-
-    } else {
+    if (this.navParams.get('id') === undefined) {
       this.action = 'Agregar ';
+      this.address = new Address('', '', '');
+    } else {
+      const result = this.navParams.get('address');
+      this.address = new Address(
+        result.getImg(),
+        result.getAlias(),
+        result.getAddress(),
+      );
     }
   }
 }
