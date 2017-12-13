@@ -6,7 +6,7 @@
 
 <ion-content>
     <!-- <ion-searchbar [(ng-model)]="search" placeholder="Search" (search)="searchByDate($event)"></ion-searchbar>> -->
-  </ion-searchbar>
+ <!--  </ion-searchbar> -->
   <ion-list>
     <ion-item *ngFor="let t of transactionList" text-wrap>
       <h6>
@@ -16,6 +16,8 @@
       <br> {{t.address}}
       <br>
       <strong>Monto: </strong> {{t.amount}} BTC
+      <br>
+      <strong>Comisión: </strong> {{t.fee}} USD
     </ion-item>
   </ion-list>
 

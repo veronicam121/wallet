@@ -9,7 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { AddressBookPage } from '../pages/address-book/address-book';
 
 import { TransactionsPage } from '../pages/transactions/transactions';
-// import { ActividadPage } from '../pages/actividad/actividad';
+import { ActivityPage } from '../pages/activity/activity';
 // import { LibretaPage } from '../pages/libreta/libreta';
 
 @Component({
@@ -33,7 +33,7 @@ export class MyApp {
       { title: 'Cuenta', component: AccountPage },
       { title: 'Libreta de Contactos', component: AddressBookPage },
       { title: 'Transacciones', component: TransactionsPage },
-      // { title: 'Actividad', component: ActividadPage }
+      { title: 'Actividad', component: ActivityPage },
 
     ];
     this.avatar = '/imgs/user.png';

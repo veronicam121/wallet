@@ -8,14 +8,20 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item color="none" *ngFor="let a of addressBook" (click)="openAddress(a)">
+    <ion-item-sliding *ngFor="let a of addressBook" text-wrap>
+    <ion-item color="none" (click)="openAddress(a)">
       <ion-avatar item-left>
-        <img src="{{a.address.img}}"/>
+        <img src="{{a.img}}"/>
       </ion-avatar>
       <h2>
-        #{{a.id}} {{a.address.alias}}
+        #{{a.id}} {{a.alias}}
       </h2>
     </ion-item>
+    <ion-item-options>
+        <button ion-button color="danger" (click)="removeAddress(a)" icon-start>
+          <ion-icon name="trash"></ion-icon> Eliminar </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
   <ion-fab bottom right>
     <button ion-fab mini on-click="addAddress()"><ion-icon name="add"></ion-icon></button>

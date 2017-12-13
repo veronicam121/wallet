@@ -10,15 +10,18 @@
         <ion-label>
           Nombre
         </ion-label>
-        <ion-input type="text" placeholder="{{address.alias}}"></ion-input>
+        <ion-input type="text" placeholder="{{address.alias}}" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>
           Dirección
         </ion-label>
-        <ion-input type="text" placeholder="{{address.address}}"></ion-input>
+        <ion-input type="text" placeholder="{{address.address}}" required></ion-input>
       </ion-item>
-      <button ion-button type="submit" color="positive" block>
+      <button ion-button color="secondary" block>
+        Escanear Código QR
+      </button>
+      <button ion-button type="submit" color="primary" block>
         Guardar
       </button>
     </ion-list>

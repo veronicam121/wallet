@@ -16,6 +16,7 @@ import { SendPage } from '../pages/send/send';
 import { AddressBookPage } from '../pages/address-book/address-book';
 import { AddressPage } from '../pages/address/address';
 import { TransactionsPage } from '../pages/transactions/transactions';
+import { ActivityPage } from '../pages/activity/activity';
 
 @NgModule({
   bootstrap: [IonicApp],
@@ -30,6 +31,7 @@ import { TransactionsPage } from '../pages/transactions/transactions';
     AddressBookPage,
     AddressPage,
     TransactionsPage,
+    ActivityPage,
   ],
   entryComponents: [
     MyApp,
@@ -42,6 +44,7 @@ import { TransactionsPage } from '../pages/transactions/transactions';
     AddressBookPage,
     AddressPage,
     TransactionsPage,
+    ActivityPage,
   ],
   imports: [
     BrowserModule,

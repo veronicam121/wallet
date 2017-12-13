@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Transactions } from '../../models/transactions';
+import { Transaction } from '../../models/transaction';
 
 @IonicPage()
 @Component({
@@ -9,14 +9,14 @@ import { Transactions } from '../../models/transactions';
 })
 export class TransactionsPage {
 
-  public transactionList: Transactions[];
+  public transactionList: Transaction[];
   public search: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.transactionList = [
-      new Transactions(1, '12/12/2017', '34ryjhgcs35hjkjl3125lk34324s0944klnfcsjdfdsofkdofkdskfofssf', 0.3423),
-      new Transactions(2, '11/12/2017', '343sdsd12sed5jh343jhjhjh839281fhn19403nc903i3iencjdiofw0w24', 0.00023),
-      new Transactions(3, '09/12/2017', 'acbvy34fds353125ghgda3432sd24rewfwdqw432|7684rerqecxz231414', 0.000000232),
+      new Transaction(1, '12/12/2017', '34ryjhgcs35hjkjl3125lk34324s0944klnfcsjdfdsofkdofkdskfofssf', 0.3423, 0),
+      new Transaction(2, '11/12/2017', '343sdsd12sed5jh343jhjhjh839281fhn19403nc903i3iencjdiofw0w24', 0.00023, 9.20),
+      new Transaction(3, '09/12/2017', 'acbvy34fds353125ghgda3432sd24rewfwdqw432|7684rerqecxz231414', 0.00000232, 3.40),
     ];
   }
 
