@@ -1,15 +1,21 @@
+import { IAddress } from './IAddress';
+
 // Placeholder Class/Interface for the data of the logged user
 
 export class User {
-    public name: string;
-    public email: string;
-    public address: string;
-    public code: string;
+  public name: string;
+  public email: string;
+  public address: IAddress;
+  public code: string;
 
-    constructor(name, email, address, code) {
-      this.name = name;
-      this.email = email;
-      this.address = address;
-      this.code = code;
-    }
+  constructor(name, email, code, address?) {
+    this.name = name;
+    this.email = email;
+    this.code = code;
+    this.address = address;
   }
+
+  public setAddress(address: IAddress) {
+    this.address = address;
+  }
+}
