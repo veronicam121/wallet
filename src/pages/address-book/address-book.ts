@@ -31,9 +31,10 @@ export class AddressBookPage {
       this.restService.addressBook.push(addressData);
     });
 
-    this.event.subscribe("edited:address", (addressData) => {
+    this.event.subscribe('edited:address', (addressData) => {
       // Not updating currently because of model
       this.restService.addressBook[addressData.id] = addressData;
+      console.log(this.restService.addressBook);
     });
 
     // If this view parent is SendPage, then we select an Address for sending BTC or CC

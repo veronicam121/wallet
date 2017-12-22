@@ -1,5 +1,6 @@
-// Interface for the Blockchain Object of BlockCypher
-// Info on https://www.blockcypher.com/dev/bitcoin/?javascript#address
+// Interface for Address Data
+// Info on https://blockchain.info/api/blockchain_api
+
 export interface IAddress {
     hash160: string;
     address: string;

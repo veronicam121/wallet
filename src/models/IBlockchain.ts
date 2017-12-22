@@ -1,5 +1,5 @@
-// Interface for the Blockchain Object of BlockCypher
-// Info on https://www.blockcypher.com/dev/bitcoin/?javascript#blockchain
+// Interface for the Blockchain Object
+// Info on https://blockchain.info/api/blockchain_api
 
 export interface IBlockchain {
     hash: string;

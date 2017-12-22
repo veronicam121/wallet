@@ -1,21 +1,22 @@
 import { IAddress } from './IAddress';
+import { IWallet } from './IWallet';
 
 // Placeholder Class/Interface for the data of the logged user
 
 export class User {
   public name: string;
   public email: string;
-  public address: IAddress;
+  public wallet: IWallet;
   public code: string;
 
-  constructor(name, email, code, address?) {
+  constructor(name, email, code, wallet?) {
     this.name = name;
     this.email = email;
     this.code = code;
-    this.address = address;
+    this.wallet = wallet;
   }
 
-  public setAddress(address: IAddress) {
-    this.address = address;
+  public setWallet(wallet: IWallet) {
+    this.wallet = wallet;
   }
 }
