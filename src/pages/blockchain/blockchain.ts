@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { IBlockchain } from '../../models/IBlockchain';
 import { RestService } from '../../app/services/rest.service';
 import { AlertService } from '../../app/services/alert.service';
+import { IBlockchain } from '../../app/models/IBlockchain';
 
 // Component for displaying the updated data from the blockchain
 

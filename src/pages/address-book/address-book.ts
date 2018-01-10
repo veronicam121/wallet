@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Events, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddressPage } from '../address/address';
-import { Address } from '../../models/address';
 import { SendPage } from '../send/send';
 import { EditAddressPage } from '../edit-address/edit-address';
 import { NgZone } from '@angular/core';
