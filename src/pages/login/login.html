@@ -22,12 +22,16 @@
       </button>
     </div>
     <div>
-      <button ion-button color="positive" block on-click="goToLogIn()">
+      <button ion-button color="positive" block on-click="loginEmail()">
         Iniciar Sesión
       </button>
     </div>
     <button ion-button clear color="positive" block on-click="goToRegister()">
       Registrarse
+    </button>
+    <button ion-button block color="danger" (click)="loginGoogle()">
+      <ion-icon name="logo-googleplus"></ion-icon>
+      Google
     </button>
   </form>
 </ion-content>

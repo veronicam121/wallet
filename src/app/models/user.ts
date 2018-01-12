@@ -5,14 +5,16 @@ import { IWallet } from './IWallet';
 
 export class User {
   public name: string;
+  public lastname?: string;
   public email: string;
   public wallet: IWallet;
   // Placeholder for the FrontEnd
   public code: string;
   public avatar: string;
 
-  constructor(name, email, code, wallet?, avatar?) {
+  constructor(name, email, code, wallet?, avatar?, lastname?) {
     this.name = name;
+    this.lastname = lastname;
     this.email = email;
     this.code = code;
     this.wallet = wallet;

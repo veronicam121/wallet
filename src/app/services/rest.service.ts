@@ -10,12 +10,15 @@ import { IWallet } from '../models/IWallet';
 import { IBlockchain } from '../models/IBlockchain';
 import { Activity } from '../models/activity';
 import { Transaction } from '../models/transaction';
+import { AlertService } from './alert.service';
 
 // REST Service for gettind data from APIs and the Database
 // Currently using the Blockchain Data API
 
 // API Base URL
 const URL = 'https://blockchain.info/es/';
+// API Base URL for the Testnet
+const TESTING_URL = '';
 
 @Injectable()
 
@@ -29,7 +32,8 @@ export class RestService {
   public transactionList: Transaction[];
   private options: RequestOptions;
 
-  constructor(private http: Http, private loadService: LoaderService) {
+  constructor(private http: Http, private loadService: LoaderService, private alertService: AlertService) {
+
     // Headers for local testing
     const headers = new Headers();
     headers.append('&cors', 'true');
@@ -106,8 +110,17 @@ export class RestService {
       .catch(this.handleError);
   }
 
+  public showAlert(msg?, title?): Promise<any> {
+    return this.alertService.showAlert(msg, title);
+  }
+
+  public  getChart(): any {
+    throw new Error('Method not implemented.');
+  }
+
   // Error Handling for HTTP Errors
   private handleError(error: Response) {
     return Observable.throw(error.statusText);
   }
+
 }
