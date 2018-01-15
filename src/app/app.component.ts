@@ -34,7 +34,6 @@ export class MyApp {
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
               public restService: RestService, public authService: AuthService) {
-
     this.initializeApp();
 
     // List of pages that appear on the Side Menu
@@ -57,7 +56,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       // User not logged in
-      if (this.authService.status === undefined) {
+      if (!this.authService.getLoggedUser()) {
         this.rootPage = LoginPage;
       } else {
         this.rootPage = HomePage;

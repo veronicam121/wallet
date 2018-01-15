@@ -46,12 +46,6 @@ export class RestService {
       address: '12AaMuRnzw6vW6s2KPRAGeX53meTf8JbZS',
       label: 'Billetera BTC',
     };
-    this.user = new User('Nombre',
-      'correo@correo.com',
-      'assets/imgs/QRCode.png',
-      this.wallet,
-      '../../assets/imgs/user.png',
-      );
     this.addressBook = [
       new Address(1, '../../assets/imgs/user.png', 'alias 1', '42sdsvgf93ghg823'),
       new Address(2, '../../assets/imgs/user.png', 'alias 2', 'acnjsdnjwsdsjdsd'),
@@ -116,6 +110,10 @@ export class RestService {
 
   public  getChart(): any {
     throw new Error('Method not implemented.');
+  }
+
+  public createWallet() {
+    return "3GWcdf6F9ssYJAx31qubnv46aYbcsdffds";
   }
 
   // Error Handling for HTTP Errors

@@ -8,15 +8,9 @@
 
 <ion-content padding>
 
-  <span *ngIf="error" [@fallIn]='state' {{error}}></span>
+  <span *ngIf="error">{{error}}</span>
   <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm)">
     <ion-list>
-      <ion-item>
-        <ion-input type="text" placeholder="Nombre" formControlName="name"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-input type="text" placeholder="Apellido" formControlName="lastname"></ion-input>
-        </ion-item>
       <ion-item>
         <ion-input type="email" placeholder="Correo electrónico" formControlName="email"></ion-input>
       </ion-item>
@@ -28,7 +22,7 @@
       </ion-item>
 
       <button ion-button color="positive" [disabled]="!registerForm.valid" type="submit">
-        Registrarse
+        Continuar
       </button>
     </ion-list>
   </form>

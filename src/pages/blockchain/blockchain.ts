@@ -45,13 +45,13 @@ export class BlockchainPage {
     } else {
       this.blockchain = this.restService.blockChain;
     }
-    this.restService.getChart().subscribe((data) => {
+/*     this.restService.getChart().subscribe((data) => {
       this.chart = data;
       console.log(this.chart);
     },
     (error) => {
       console.log(error);
     },
-    );
+    ); */
   }
 }

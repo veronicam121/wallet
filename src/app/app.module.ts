@@ -34,6 +34,8 @@ import { EditAddressPage } from '../pages/edit-address/edit-address';
 import { LoaderService } from './services/loader.service';
 import { AlertService } from './services/alert.service';
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from './services/auth.service';
+import { ConfirmEmailPage } from '../pages/confirm-email/confirm-email';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -64,6 +66,7 @@ const firebaseConfig = {
     ActivityPage,
     BlockchainPage,
     EditAddressPage,
+    ConfirmEmailPage,
   ],
   entryComponents: [
     MyApp,
@@ -79,6 +82,7 @@ const firebaseConfig = {
     ActivityPage,
     BlockchainPage,
     EditAddressPage,
+    ConfirmEmailPage,
   ],
   imports: [
     AngularFireDatabaseModule,
@@ -97,6 +101,7 @@ const firebaseConfig = {
     }),
   ],
   providers: [
+    AuthService,
     AlertService,
     FirebaseProvider,
     LoaderService,
