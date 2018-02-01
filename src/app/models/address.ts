@@ -1,34 +1,26 @@
 import { IAddress } from './IAddress';
 
-// Placeholder Class/Interface for the user registered addressess
-// Used for Sending BTC or CC
+// Placeholder Class/Interface for the user registered addresses
+// Used for Sending BTC or CC to an user that also has a Vision Wallet
 
 export class Address {
-  public id: number;
-  public img: string;
   public alias: string;
-  public address: string;
+  public email: string;
+  public img?: string;
+  public uid?: string;
 
-  constructor(id: number, img: string, alias: string, address: string) {
-    this.id = id;
+  constructor(alias: string, email: string, img?: string, uid?: string) {
     this.img = img;
     this.alias = alias;
-    this.address = address;
+    this.email = email;
+    this.uid = uid;
   }
 
-  public getId() {
-    return this.id;
+  public setAlias(alias: string) {
+    this.alias = alias;
   }
 
-  public getAddress() {
-    return this.address;
-  }
-
-  public getAlias() {
-    return this.alias;
-  }
-
-  public getImg() {
-    return this.img;
+  public getImg(avatar) {
+    this.img = avatar;
   }
 }

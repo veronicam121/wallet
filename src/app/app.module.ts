@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
 import { QRScanner } from '@ionic-native/qr-scanner';
+import { QRCodeModule } from 'angularx-qrcode';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 // i18n Imports
@@ -35,7 +36,10 @@ import { LoaderService } from './services/loader.service';
 import { AlertService } from './services/alert.service';
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './services/auth.service';
+
 import { ConfirmEmailPage } from '../pages/confirm-email/confirm-email';
+import { SendConfirmPage } from '../pages/send-confirm/send-confirm';
+import { KeyService } from './services/key.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -67,6 +71,7 @@ const firebaseConfig = {
     BlockchainPage,
     EditAddressPage,
     ConfirmEmailPage,
+    SendConfirmPage,
   ],
   entryComponents: [
     MyApp,
@@ -83,6 +88,7 @@ const firebaseConfig = {
     BlockchainPage,
     EditAddressPage,
     ConfirmEmailPage,
+    SendConfirmPage,
   ],
   imports: [
     AngularFireDatabaseModule,
@@ -92,6 +98,7 @@ const firebaseConfig = {
     IonicModule.forRoot(MyApp),
     HttpModule,
     HttpClientModule,
+    QRCodeModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -105,6 +112,7 @@ const firebaseConfig = {
     AlertService,
     FirebaseProvider,
     LoaderService,
+    KeyService,
     QRScanner,
     SplashScreen,
     {

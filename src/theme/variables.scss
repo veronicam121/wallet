@@ -3,17 +3,14 @@
 
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
-$font-path: "../assets/fonts";
 
+$font-path: "../assets/fonts";
 
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
-
-
 @import "ionic.globals";
-
 
 // Shared Variables
 // --------------------------------------------------
@@ -21,9 +18,6 @@ $app-direction: ltr;
 // the Sass variables found in Ionic's source scss files.
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
-
-
-
 
 // Named Color Variables
 // --------------------------------------------------
@@ -33,35 +27,93 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
-$colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+$colors: ( 
+  primary : #d56930, 
+  secondary: #243156, 
+  terciary : #c56126, 
+  dark : #686868,
+  light: #e4e5e4,
+  clear: #ffffff,
 );
 
+$toolbar-background: map-get($colors, primary);
+$toolbar-border-color: map-get($colors, primary);
+$grid-padding-width: 5px !default;
+
+
+@font-face {
+  font-family: "Wallet";
+  src: url("../assets/fonts/SF-Pro-Display-Regular.otf");
+}
+
+
+@font-face {
+  font-family: "Wallet-Bold";
+  src: url("../assets/fonts/SF-Pro-Display-Bold.otf");
+}
+
+
+ion-icon {
+  &[class*="wallet-"] {
+    // Instead of using the font-based icons
+    // We're applying SVG masks
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: map-get($colors, primary);
+    width: 1em;
+    height: 1em;
+  } // custom icons
+  &[class*="wallet-activity"] {
+    mask-image: url(../assets/icons/wallet-activity.svg);
+  }
+  &[class*="wallet-home"] {
+    mask-image: url(../assets/icons/wallet-home.svg);
+  }
+  &[class*="wallet-address-book"] {
+    mask-image: url(../assets/icons/wallet-address-book.svg);
+  }
+  &[class*="wallet-transactions"] {
+    mask-image: url(../assets/icons/wallet-transactions.svg);
+  }
+  &[class*="wallet-account"] {
+    mask-image: url(../assets/icons/wallet-account.svg);
+  }
+  &[class*="wallet-logout"] {
+    mask-image: url(../assets/icons/wallet-logout.svg);
+  }
+  &[class*="wallet-email"] {
+    mask-image: url(../assets/icons/wallet-email.svg);
+  }
+  &[class*="wallet-password"] {
+    mask-image: url(../assets/icons/wallet-password.svg);
+  }
+  &[class*="wallet-user"] {
+    mask-image: url(../assets/icons/wallet-user.svg);
+  }
+  &[class*="wallet-arrow"] {
+    mask-image: url(../assets/icons/wallet-arrow.svg);
+  }
+}
 
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
-
+$toolbar-ios-border-color: map-get($colors, primary );
+$item-ios-detail-push-show: none;
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
-
+$button-md-text-transform: none;
+$button-md-box-shadow: none;
+$toolbar-md-border-color: map-get($colors, primary);
 
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
-
-
-
 
 // App Theme
 // --------------------------------------------------
@@ -71,18 +123,11 @@ $colors: (
 // default are overridden.
 
 @import "ionic.theme.default";
-
-
 // Ionicons
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/ionicons/
 
 @import "ionic.ionicons";
-
-
 // Fonts
 // --------------------------------------------------
-
-@import "roboto";
-@import "noto-sans";

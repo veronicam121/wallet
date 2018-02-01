@@ -6,6 +6,8 @@ import { Address } from '../../app/models/address';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 import { AlertService } from '../../app/services/alert.service';
 import { RestService } from '../../app/services/rest.service';
+import { SendConfirmPage } from '../send-confirm/send-confirm';
+import { ErrorService } from '../../app/services/error.service';
 
 @IonicPage()
 @Component({
@@ -15,7 +17,7 @@ import { RestService } from '../../app/services/rest.service';
 export class SendPage {
 
   private selectedAddress: Address;
-
+  private error = new ErrorService(null, 'CAMARA_ERROR');
   constructor(public navCtrl: NavController, public navParams: NavParams, public event: Events,
               private qrScanner: QRScanner, private restService: RestService) {
     this.event.subscribe('selected:address', (addressData) => {
@@ -31,7 +33,7 @@ export class SendPage {
     this.qrScanner.prepare()
       .then((status: QRScannerStatus) => {
         if (status.authorized) {
-          let scanSub = this.qrScanner.scan().subscribe((text: string) => {
+          const scanSub = this.qrScanner.scan().subscribe((text: string) => {
             // We must do something here with the address provided
             this.qrScanner.hide();
             scanSub.unsubscribe();
@@ -41,7 +43,8 @@ export class SendPage {
           // wait for user to scan something, then the observable callback will be called
 
         } else if (status.denied) {
-          this.restService.showAlert('Debe darle permisos a la aplicación para usar la cámara', 'Error')
+
+          this.restService.showAlert(this.error)
             .then((rest) => {
               // Implement method for getting user permissions on settings
               // camera permission was permanently denied
@@ -54,13 +57,17 @@ export class SendPage {
         }
       })
       .catch((error) => {
-        this.restService.showAlert('Cámara no disponible', 'Error').then((rest) => {
+        this.restService.showAlert(this.error).then((rest) => {
           // Do nothing
         });
       });
   }
-  private duplicateAddress(object) {
-    return new Address(object.id, object.img, object.alias, object.address);
+  private duplicateAddress(object: Address) {
+    return new Address(object.alias, object.email, object.img );
+  }
+
+  private goToSendConfirm(address) {
+    this.navCtrl.push(SendConfirmPage, address);
   }
 
 }

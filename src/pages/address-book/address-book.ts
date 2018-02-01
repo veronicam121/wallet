@@ -4,7 +4,9 @@ import { AddressPage } from '../address/address';
 import { SendPage } from '../send/send';
 import { EditAddressPage } from '../edit-address/edit-address';
 import { NgZone } from '@angular/core';
-import { RestService } from '../../app/services/rest.service';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
+import { AuthService } from '../../app/services/auth.service';
+import { Observable } from 'rxjs';
 
 @IonicPage()
 @Component({
@@ -16,25 +18,16 @@ import { RestService } from '../../app/services/rest.service';
 
 export class AddressBookPage {
 
+  public addressBook: Observable<any>;
+  public uid;
   private selectAddress: boolean;
   private zone: NgZone;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public event: Events,
-              private restService: RestService) {
-
-    // Listener for event for updating the list
-    // Comes from AddressPage, and the data is the new Address data
+              public dataProvider: FirebaseProvider, public authService: AuthService) {
     this.zone = new NgZone({ enableLongStackTrace: false });
-
-    this.event.subscribe('added:address', (addressData) => {
-      this.restService.addressBook.push(addressData);
-    });
-
-    this.event.subscribe('edited:address', (addressData) => {
-      // Not updating currently because of model
-      this.restService.addressBook[addressData.id] = addressData;
-      console.log(this.restService.addressBook);
-    });
+    this.uid = this.authService.user.uid;
+    this.addressBook = dataProvider.getAddressBook(this.uid);
 
     // If this view parent is SendPage, then we select an Address for sending BTC or CC
     if (this.navCtrl.last().name === 'SendPage') {
@@ -44,8 +37,7 @@ export class AddressBookPage {
 
   // Pushes a new Address to the Address List
   private addAddress() {
-    let id = this.restService.addressBook.length + 1;
-    this.navCtrl.push(AddressPage, id);
+    this.navCtrl.push(AddressPage);
   }
 
   // Opens AddressPage or selects an Address for SendPage
@@ -54,7 +46,7 @@ export class AddressBookPage {
     if (this.selectAddress) {
       this.event.publish('selected:address', address);
       this.navCtrl.pop();
-    // Else, opens EditAddressPage with a selected Address to be seen or modified
+      // Else, opens EditAddressPage with a selected Address to be seen or modified
     } else {
       this.navCtrl.push(EditAddressPage, address);
     }
@@ -62,9 +54,6 @@ export class AddressBookPage {
 
   // Deletes an Address from the Address List
   private removeAddress(address) {
-    let index = this.restService.addressBook.indexOf(address);
-    if (index > -1) {
-      this.restService.addressBook.splice(index, 1);
-    }
+    this.dataProvider.removeAddressFromAddressBook(this.uid, address);
   }
 }

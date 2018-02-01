@@ -31,11 +31,9 @@ export class BlockchainPage {
       this.restService.getBlockchain()
         .subscribe((data) => {
           this.blockchain = data;
-          this.restService.blockChain = data;
         },
-        // Error Handling
         (error) => {
-          this.restService.showAlert().then((res) => {
+          this.restService.showAlert(error).then((res) => {
             this.navCtrl.pop();
           },
             (err) => {

@@ -1,23 +1,19 @@
 <ion-header>
-    <ion-navbar>
-      <ion-title>
-        Recibir
-      </ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <ion-title>
+      Recibir
+    </ion-title>
+  </ion-navbar>
 
-  </ion-header>
-  <ion-content padding>
-    <div class="header">
-      <h5>
-        Dirección Bitcoin
-      </h5>
+</ion-header>
+<ion-content padding>
+  <div class="page-title">
+      Dirección Bitcoin
+  </div>
+  <div class="receive-code" *ngIf="address">
+    <qrcode [qrdata]="address" [level]="'M'"></qrcode>
+    <div class="receive-address">
+      {{address}}
     </div>
-    <div class="code">
-      <img src="{{code}}"> 
-    </div>
-    <div class="direction">
-      <p>
-        {{direction}}
-      </p>
-    </div>
-  </ion-content>
+  </div>
+</ion-content>

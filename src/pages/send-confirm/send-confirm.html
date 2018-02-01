@@ -5,45 +5,40 @@
   </ion-header>
   
   <ion-content padding>
+    <div class="page-title">
+      Seleccionar monto
+    </div>
     <ion-list>
-      <div class="header">
-        <h5>
-          Seleccionar monto
-        </h5>
-      </div>
-      <form>
-        <ion-item>
-          <ion-input type="number" placeholder="Monto"></ion-input>
+      <form [formGroup]="sendForm" (ngSubmit)="sendPayment(sendForm)" *ngIf ="balance">
+        <ion-item class="thin-input">
+          <ion-input type="number" formControlName="amount" placeholder="amount.value" min="10000" [max]="balance.balance"></ion-input>
         </ion-item>
-        <p>
-          Disponible: {{availableBTC}}
-        </p>
-        <p>
-          {{availableUSD}}
-        </p>
-        <p>
-          {{availableBsF}}
-        </p>
-        <ion-item>
-          <ion-label stacked>
-            Token
-          </ion-label>
-          <ion-input type="text" placeholder=""></ion-input>
+        <div *ngIf ="balance" class="send-confirm-info">
+            Disponible: {{balance.balance}} sat <br>
+            USD: {{balance.balance * 0.000105392}} USD
+        </div>
+        <div class="send-confirm-info">
+          Restante: {{balance.balance - sendForm.value.amount}} sat <br>
+        </div>
+        <ion-item class="thin-input">
+          <ion-input type="text" placeholder="Token"></ion-input>
         </ion-item>
-        <p>
+        <div class="send-confirm-info">
           Dirección Seleccionada
-        </p>
-        <ion-item color="none">
-          <ion-avatar item-left>
-            <img />
-          </ion-avatar>
-          <h2>
-            Contacto
-          </h2>
-        </ion-item>
-        <button ion-button color="balanced" block on-click="goToInicio()">
+        </div>
+        <ion-item no-lines class="address-container">
+            <img class="address-img" src="{{address.img}}" />
+            <div class="address-alias">
+              {{address.alias}}
+            </div>
+            <div class="address-email">
+              {{address.email}}
+            </div>
+          </ion-item>
+        <button ion-button block type="submit">
           Enviar
         </button>
       </form>
     </ion-list>
   </ion-content>
+  
